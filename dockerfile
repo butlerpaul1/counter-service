@@ -1,4 +1,4 @@
-FROM golang:1.16-alpine
+FROM golang:latest
 
 # Environment variable that our dockerised application can make use of. 
 # The value of the http_port arg is set as the env variable.
