@@ -1,3 +1,13 @@
 #!/bin/bash
+while getopts p:i: flag
+do
+    case "${flag}" in
+        p) port=${OPTARG};;
+        i) image=${OPTARG};;
+    esac
+done
 
-## This script should take arguments for and deploy a docker image when run in a VM
+echo "Pulling $image"
+docker pull $image
+echo "Running $image on port:$port"
+docker run -p $port:8080 $image
